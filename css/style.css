@@ -7,6 +7,11 @@
  * Kroc Camen, and the H5BP dev community and team.
  */
 
+* {
+	--colour-bg-footer: #172d4c;
+	---colour-emth: #19b2de;
+}
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
@@ -84,13 +89,6 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-/* DEBUG */
-.col,
-.row {
-	padding: 4px;
-	background-color: #c1c1c133;
-}
-
 /* Grid */
 .row {
 	display: grid;
@@ -111,7 +109,7 @@ textarea {
 /* Medium+ */
 @media screen and (min-width: 40em) {
 	.row {
-		max-width: 70rem;
+		max-width: 80rem;
 		column-gap: 1.5rem;
 		row-gap: 1.5rem;
 		margin: 0 auto;
@@ -124,7 +122,7 @@ textarea {
 	}
 
 	.m-col-2 {
-		grid-template-columns: 1fr, 1fr;
+		grid-template-columns: 1fr 1fr;
 	}
 
 	.m-col-3 {
@@ -136,11 +134,19 @@ textarea {
 	}
 
 	.m-1-2 {
-		grid-template-columns: 1fr, 2fr;
+		grid-template-columns: 1fr 2fr;
 	}
 
 	.m-2-1 {
-		grid-template-columns: 2fr, 1fr;
+		grid-template-columns: 2fr 1fr;
+	}
+
+	.m-1-4 {
+		grid-template-columns: 1fr 4fr;
+	}
+
+	.m-ord-3 {
+		order: 3;
 	}
 }
 
@@ -168,7 +174,7 @@ textarea {
 	}
 
 	.l-col-2 {
-		grid-template-columns: 1fr, 1fr;
+		grid-template-columns: 1fr 1fr;
 	}
 
 	.l-col-3 {
@@ -184,12 +190,38 @@ textarea {
 	}
 }
 
-/* Stylizing */
+/* Stylizing */ /* better styled using SASS */
 .page__footer {
-	background-color: var(--colour-purple);
+	background-color: var(--colour-bg-footer);
+	color: #fff;
+	padding: 1rem;
 }
-.page__footer::after {
-	content: image("/img/footer_tiles");
+
+.footer__body-text {
+	font-size: 0.85em;
+	color: #fff;
+}
+
+.footer__body-text--small {
+	font-size: 0.7em;
+}
+
+.footer__heading {
+	font-weight: bold;
+}
+
+.footer__icon {
+	width: 3em;
+	height: 3em;
+	border-radius: 4px;
+	background-color: #222;
+	overflow: hidden;
+	display: block;
+}
+
+.form__email-send {
+	/* Unsure how to approach */
+	position: relative;
 }
 
 /* ==========================================================================
@@ -197,7 +229,59 @@ textarea {
    ========================================================================== */
 .---flex {
 	display: flex;
+	flex-wrap: wrap;
 }
+
+.---grid-v-align {
+	align-items: center;
+}
+
+.---grid-h-align {
+	justify-content: center;
+}
+
+.---gap-1 {
+	gap: 1rem;
+}
+
+.---gap-05 {
+	gap: 0.5rem;
+}
+
+.---block {
+	display: block;
+}
+
+.---image__round {
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 2em auto;
+	width: 10em;
+	height: 10em;
+}
+
+.---border-w {
+	border: 1px solid white;
+	border-radius: 0.1rem;
+}
+
+.---colour-emth {
+	color: var(---colour-emth);
+}
+
+.---colour-green {
+	color: #25c389;
+}
+.---colour-yellow {
+	color: #ffb901;
+}
+.---colour-red {
+	color: #de6262;
+}
+.---colour-blue {
+	color: #19b2de;
+}
+
 /*
  * Hide visually and from screen readers
  */
